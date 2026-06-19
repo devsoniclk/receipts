@@ -1,0 +1,13 @@
+goal: "Add a /health endpoint returning 200 + {status: ok}"
+
+probes:
+  - shell:
+      cmd: "echo 'Server check' && exit 0"
+      exit_code: 0
+  - file:
+      path: "README.md"
+      exists: true
+
+anti_gaming:
+  forbid_test_edits: true
+  forbid_skipped_tests: true

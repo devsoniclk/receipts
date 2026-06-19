@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "receipts"
+version = "0.1.0"
+description = "Task-completion verification: checks whether an agent actually did what it claims"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Receipts Contributors" }]
+dependencies = [
+    "pyyaml>=6.0",
+    "httpx>=0.25",
+    "click>=8.0",
+    "rich>=13.0",
+    "gitpython>=3.1",
+]
+
+[project.scripts]
+receipts = "receipts.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/receipts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
